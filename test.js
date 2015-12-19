@@ -5,21 +5,6 @@ describe('mocha-let', function() {
   var object = {};
   set('object', () => object);
 
-  context("in a sub-context", function() {
-    var aDifferentObject = {};
-    set('object', () => aDifferentObject);
-
-    it("allows overriding the value of an existing property", function() {
-      assert.equal(this.object, aDifferentObject);
-    });
-
-    var otherDependedValue = {};
-    set('dependedValue', () => otherDependedValue);
-    it("overriding the value of properties depended on by existing properties changes the value of the dependent property", function() {
-      assert.equal(this.dependentObject.prop, otherDependedValue);
-    });
-  });
-
   it("allows accessing the return value of the given function as the specified property on `this`", function() {
     assert.equal(this.object, object);
   });
@@ -35,5 +20,20 @@ describe('mocha-let', function() {
   set('memoizedObject', () => ({}));
   it('memoizes the values of each property', function() {
     assert.equal(this.memoizedObject, this.memoizedObject);
+  });
+
+  context("in a sub-context", function() {
+    var aDifferentObject = {};
+    set('object', () => aDifferentObject);
+
+    it("allows overriding the value of an existing property", function() {
+      assert.equal(this.object, aDifferentObject);
+    });
+
+    var otherDependedValue = {};
+    set('dependedValue', () => otherDependedValue);
+    it("overriding the value of properties depended on by existing properties changes the value of the dependent property", function() {
+      assert.equal(this.dependentObject.prop, otherDependedValue);
+    });
   });
 });
