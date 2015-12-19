@@ -7,12 +7,20 @@
     "test": "grunt test",
     "lint": "grunt lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ajedi32/mocha-let.git"
+  },
   "keywords": [
     "mocha",
     "rspec",
     "let",
     "tests"
   ],
+  "bugs": {
+    "url": "https://github.com/Ajedi32/mocha-let/issues"
+  },
+  "homepage": "https://github.com/Ajedi32/mocha-let#readme",
   "author": "Andrew Meyer",
   "license": "MIT",
   "devDependencies": {
