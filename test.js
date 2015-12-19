@@ -12,6 +12,12 @@ describe('mocha-let', function() {
     it("allows overriding the value of an existing property", function() {
       assert.equal(this.object, aDifferentObject);
     });
+
+    var otherDependedValue = {};
+    set('dependedValue', () => otherDependedValue);
+    it("overriding the value of properties depended on by existing properties changes the value of the dependent property", function() {
+      assert.equal(this.dependentObject.prop, otherDependedValue);
+    });
   });
 
   it("allows accessing the return value of the given function as the specified property on `this`", function() {
