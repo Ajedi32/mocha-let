@@ -1,6 +1,11 @@
+var memoize = require('memoizee');
+
 function mochaLet(name, valueFunction) {
   beforeEach(function() {
-    Object.defineProperty(this, name, {get: valueFunction});
+    Object.defineProperty(this, name, {
+      configurable: true,
+      get: memoize(valueFunction)
+    });
   });
 }
 

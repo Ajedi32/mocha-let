@@ -31,4 +31,9 @@ describe('mocha-let', function() {
   it("allows dependencies between properties", function() {
     assert.equal(this.dependentObject.prop, dependedValue);
   });
+
+  set('memoizedObject', () => ({}));
+  it('memoizes the values of each property', function() {
+    assert.equal(this.memoizedObject, this.memoizedObject);
+  });
 });
