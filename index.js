@@ -1,6 +1,6 @@
 function mochaLet(name, valueFunction) {
   beforeEach(function() {
-    this[name] = valueFunction();
+    Object.defineProperty(this, name, {get: valueFunction});
   });
 }
 
