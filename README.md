@@ -1,4 +1,4 @@
-# mocha-let
+# mocha-let [![Build Status](https://travis-ci.org/Ajedi32/mocha-let.svg)](https://travis-ci.org/Ajedi32/mocha-let)
 
 A dead-simple package that lets you create RSpec-style memoized values in Mocha.
 
