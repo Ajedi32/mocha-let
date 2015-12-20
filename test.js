@@ -28,6 +28,11 @@ describe('mocha-let', function() {
     assert.equal(this.object, someOtherObject);
   });
 
+  set('rawValue', 1);
+  it("allows assigning constant values without wrapping them in a function", function() {
+    assert.equal(this.rawValue, 1);
+  });
+
   context("in a sub-context", function() {
     var aDifferentObject = {};
     set('object', () => aDifferentObject);
