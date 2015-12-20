@@ -22,6 +22,12 @@ describe('mocha-let', function() {
     assert.equal(this.memoizedObject, this.memoizedObject);
   });
 
+  it("allows assigning to the value of an existing property", function() {
+    var someOtherObject = {};
+    this.object = someOtherObject;
+    assert.equal(this.object, someOtherObject);
+  });
+
   context("in a sub-context", function() {
     var aDifferentObject = {};
     set('object', () => aDifferentObject);

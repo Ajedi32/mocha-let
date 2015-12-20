@@ -2,7 +2,7 @@
 
 A dead-simple package that lets you create RSpec-style memoized values in Mocha.
 
-The entire package is just 12 lines of code, with only one dependency
+The entire package is just 21 lines of code, with only one dependency
 ([memoizee](https://www.npmjs.com/package/memoizee)). [See for yourself!](index.js)
 
 ## Basic usage

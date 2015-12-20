@@ -4,7 +4,16 @@ function mochaLet(name, valueFunction) {
   beforeEach(function() {
     Object.defineProperty(this, name, {
       configurable: true,
-      get: memoize(valueFunction)
+      get: memoize(valueFunction),
+      set: function(newValue) {
+        // Change back to a regular property
+        Object.defineProperty(this, name, {
+          configurable: true,
+          enumerable: true,
+          writable: true,
+          value: newValue,
+        });
+      }
     });
   });
 }
